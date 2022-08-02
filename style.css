@@ -1,0 +1,15 @@
+.editing .button-edit {
+  display: none;
+}
+
+.editing .button-save {
+  display: block;
+}
+
+.button-edit {
+  display: block;
+}
+
+.button-save {
+  display: none;
+}
