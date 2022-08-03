@@ -21,48 +21,59 @@ function clearList() {
   list.innerHTML = '';
 }
 
+function editItem() {
+  const btnEdit = document.createElement('button');
+
+  btnEdit.innerHTML = 'Editar';
+  btnEdit.classList.add('button-edit');
+  btnEdit.addEventListener('click', () => {
+    const item = btnEdit.closest('li');
+    item.classList.add('editing');
+    console.log('Tudo certo');
+  });
+
+  return btnEdit;
+}
+
+function saveItem() {
+  const btnSave = document.createElement('button');
+
+  btnSave.innerHTML = 'Salvar';
+  btnSave.classList.add('button-save');
+  btnSave.addEventListener('click', () => {
+    const item = btnSave.closest('li');
+    item.classList.remove('editing');
+    console.log('Tudo certo');
+  });
+
+  return btnSave;
+}
+
+function removeItem() {
+  const btnRemove = document.createElement('button');
+
+  btnRemove.innerHTML = 'Remover';
+  btnRemove.classList.add('button-remove');
+  btnRemove.addEventListener('click', () => {});
+
+  return btnRemove;
+}
+
 function generateList() {
   const savingTasks = JSON.parse(localStorage.getItem('task')) || [];
 
   for (i = 0; i < savingTasks.length; i++) {
     const item = document.createElement('li');
     const taskItem = document.createElement('span');
-    const btnSave = document.createElement('button');
-    const btnEdit = document.createElement('button');
-    const btnRemove = document.createElement('button');
 
     taskItem.innerHTML = savingTasks[i];
     item.appendChild(taskItem);
-    btnSave.innerHTML = 'Salvar';
-    btnSave.classList.add('button-save');
-    item.appendChild(btnSave);
-    btnEdit.innerHTML = 'Editar';
-    btnEdit.classList.add('button-edit');
-    item.appendChild(btnEdit);
-    btnRemove.innerHTML = 'Remover';
-    item.appendChild(btnRemove);
+    item.appendChild(saveItem());
+    item.appendChild(editItem());
+    item.appendChild(removeItem());
     list.appendChild(item);
-
-    btnEdit.addEventListener('click', () => {
-      const item = btnEdit.closest('li');
-      item.classList.add('editing');
-    });
-
-    btnSave.addEventListener('click', () => {
-      const item = btnEdit.closest('li');
-      item.classList.remove('editing');
-    });
   }
 }
-
-/*function EditItem() {
-  const btnEdit = document.querySelector('.button-edit');
-
-  btnEdit.addEventListener('click', () => {
-    console.log('test');
-    btnEdit.closest('li').classList.remove('.editing');
-  });
-}*/
 
 function clearInput() {
   input.value = '';
