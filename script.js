@@ -23,20 +23,15 @@ function clearList() {
 function saveItem() {
   const btnSave = document.createElement('button');
 
+  btnSave.type = 'submit';
   btnSave.innerHTML = 'Salvar';
   btnSave.classList.add('button-save');
-  btnSave.addEventListener('click', () => {
-    const item = btnSave.closest('li');
-
-    item.classList.remove('editing');
-  });
 
   return btnSave;
 }
 
 function editItem() {
   const btnEdit = document.createElement('button');
-  const editInput = document.createElement('input');
 
   btnEdit.innerHTML = 'Editar';
   btnEdit.classList.add('button-edit');
@@ -44,7 +39,6 @@ function editItem() {
     const item = btnEdit.closest('li');
 
     item.classList.add('editing');
-    item.prepend(editInput);
   });
 
   return btnEdit;
@@ -73,14 +67,25 @@ function generateList() {
   for (i = 0; i < savingTasks.length; i++) {
     const item = document.createElement('li');
     const taskItem = document.createElement('span');
+    const form = document.createElement('form');
+    const editInput = document.createElement('input');
 
+    editInput.type = 'text';
     taskItem.innerHTML = savingTasks[i];
-    item.appendChild(taskItem);
-    item.appendChild(saveItem());
-    item.appendChild(editItem());
-    item.appendChild(removeItem(i));
+    form.appendChild(taskItem);
+    form.appendChild(editInput);
+    form.appendChild(editItem());
+    form.appendChild(removeItem(i));
+    form.appendChild(saveItem());
+    item.appendChild(form);
     list.appendChild(item);
+
+    form.addEventListener('submit', handleInput);
   }
+}
+
+function handleInput(event) {
+  event.preventDefault();
 }
 
 function clearInput() {

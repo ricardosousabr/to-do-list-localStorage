@@ -6,8 +6,8 @@
   display: block;
 }
 
-.button-edit {
-  display: block;
+.editing .button-remove {
+  display: none;
 }
 
 .button-save {
