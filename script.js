@@ -49,12 +49,19 @@ function saveItem() {
   return btnSave;
 }
 
-function removeItem() {
+function removeItem(index) {
   const btnRemove = document.createElement('button');
 
   btnRemove.innerHTML = 'Remover';
+  const itemArray = JSON.parse(localStorage.getItem('task')) || [];
+
   btnRemove.classList.add('button-remove');
-  btnRemove.addEventListener('click', () => {});
+  btnRemove.addEventListener('click', () => {
+    itemArray.splice(index, 1);
+    localStorage.setItem('task', JSON.stringify(itemArray));
+    clearList();
+    generateList();
+  });
 
   return btnRemove;
 }
@@ -70,7 +77,7 @@ function generateList() {
     item.appendChild(taskItem);
     item.appendChild(saveItem());
     item.appendChild(editItem());
-    item.appendChild(removeItem());
+    item.appendChild(removeItem(i));
     list.appendChild(item);
   }
 }
@@ -86,7 +93,6 @@ function handleSubmit(event) {
     createTask();
     clearList();
     generateList();
-    EditItem();
   }
   clearInput();
 }
