@@ -13,7 +13,6 @@ function createTask() {
   const savingTasks = JSON.parse(localStorage.getItem('task')) || [];
 
   savingTasks.push(valueInput);
-
   localStorage.setItem('task', JSON.stringify(savingTasks));
 }
 
@@ -28,6 +27,7 @@ function saveItem() {
   btnSave.classList.add('button-save');
   btnSave.addEventListener('click', () => {
     const item = btnSave.closest('li');
+
     item.classList.remove('editing');
   });
 
@@ -36,12 +36,15 @@ function saveItem() {
 
 function editItem() {
   const btnEdit = document.createElement('button');
+  const editInput = document.createElement('input');
 
   btnEdit.innerHTML = 'Editar';
   btnEdit.classList.add('button-edit');
   btnEdit.addEventListener('click', () => {
     const item = btnEdit.closest('li');
+
     item.classList.add('editing');
+    item.prepend(editInput);
   });
 
   return btnEdit;
