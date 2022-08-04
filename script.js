@@ -21,20 +21,6 @@ function clearList() {
   list.innerHTML = '';
 }
 
-function editItem() {
-  const btnEdit = document.createElement('button');
-
-  btnEdit.innerHTML = 'Editar';
-  btnEdit.classList.add('button-edit');
-  btnEdit.addEventListener('click', () => {
-    const item = btnEdit.closest('li');
-    item.classList.add('editing');
-    console.log('Tudo certo');
-  });
-
-  return btnEdit;
-}
-
 function saveItem() {
   const btnSave = document.createElement('button');
 
@@ -43,10 +29,22 @@ function saveItem() {
   btnSave.addEventListener('click', () => {
     const item = btnSave.closest('li');
     item.classList.remove('editing');
-    console.log('Tudo certo');
   });
 
   return btnSave;
+}
+
+function editItem() {
+  const btnEdit = document.createElement('button');
+
+  btnEdit.innerHTML = 'Editar';
+  btnEdit.classList.add('button-edit');
+  btnEdit.addEventListener('click', () => {
+    const item = btnEdit.closest('li');
+    item.classList.add('editing');
+  });
+
+  return btnEdit;
 }
 
 function removeItem(index) {
