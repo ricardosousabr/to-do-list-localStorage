@@ -23,6 +23,7 @@ function clearList() {
 function saveItem() {
   const btnSave = document.createElement('button');
 
+  btnSave.type = 'button';
   btnSave.type = 'submit';
   btnSave.innerHTML = 'Salvar';
   btnSave.classList.add('button-save');
@@ -33,6 +34,7 @@ function saveItem() {
 function editItem() {
   const btnEdit = document.createElement('button');
 
+  btnEdit.type = 'button';
   btnEdit.innerHTML = 'Editar';
   btnEdit.classList.add('button-edit');
   btnEdit.addEventListener('click', () => {
@@ -47,6 +49,7 @@ function editItem() {
 function removeItem(index) {
   const btnRemove = document.createElement('button');
 
+  btnRemove.type = 'button';
   btnRemove.innerHTML = 'Remover';
   const itemArray = JSON.parse(localStorage.getItem('task')) || [];
 
@@ -70,7 +73,9 @@ function generateList() {
     const form = document.createElement('form');
     const editInput = document.createElement('input');
 
+    editInput.classList.add('input');
     editInput.type = 'text';
+    editInput.value = savingTasks[i];
     taskItem.innerHTML = savingTasks[i];
     form.appendChild(taskItem);
     form.appendChild(editInput);
@@ -80,12 +85,17 @@ function generateList() {
     item.appendChild(form);
     list.appendChild(item);
 
-    form.addEventListener('submit', handleInput);
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      handleInput(i, editInput);
+    });
   }
 }
 
-function handleInput(event) {
-  event.preventDefault();
+function handleInput(i, editInput) {
+  console.log(i, editInput);
+
+  editInput.value = 'Hello';
 }
 
 function clearInput() {

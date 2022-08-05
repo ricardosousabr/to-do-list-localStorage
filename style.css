@@ -3,13 +3,21 @@
 }
 
 .editing .button-save {
-  display: block;
+  display: inline;
 }
 
 .editing .button-remove {
   display: none;
 }
 
+.editing .input {
+  display: inline;
+}
+
 .button-save {
+  display: none;
+}
+
+.input {
   display: none;
 }
