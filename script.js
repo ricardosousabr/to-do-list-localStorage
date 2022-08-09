@@ -84,18 +84,20 @@ function generateList() {
     form.appendChild(saveItem());
     item.appendChild(form);
     list.appendChild(item);
-
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      handleInput(i, editInput);
-    });
+    changeTask(form, i, savingTasks, editInput);
   }
 }
 
-function handleInput(i, editInput) {
-  console.log(i, editInput);
+function changeTask(form, index, savingTasks, editInput) {
+  form.addEventListener('submit', (event) => {
+    const valueInput = editInput.value.trim();
 
-  editInput.value = 'Hello';
+    event.preventDefault();
+    savingTasks[index] = valueInput;
+    localStorage.setItem('task', JSON.stringify(savingTasks));
+    clearList();
+    generateList();
+  });
 }
 
 function clearInput() {
