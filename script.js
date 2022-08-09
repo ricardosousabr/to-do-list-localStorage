@@ -31,6 +31,22 @@ function saveItem() {
   return btnSave;
 }
 
+function cancelItem() {
+  const btnCancel = document.createElement('button');
+
+  btnCancel.type = 'button';
+  btnCancel.type = 'submit';
+  btnCancel.innerHTML = 'Cancelar';
+  btnCancel.classList.add('button-cancel');
+  btnCancel.addEventListener('click', () => {
+    const item = btnCancel.closest('li');
+
+    item.classList.remove('editing');
+  });
+
+  return btnCancel;
+}
+
 function editItem() {
   const btnEdit = document.createElement('button');
 
@@ -81,6 +97,7 @@ function generateList() {
     form.appendChild(editInput);
     form.appendChild(editItem());
     form.appendChild(removeItem(i));
+    form.appendChild(cancelItem());
     form.appendChild(saveItem());
     item.appendChild(form);
     list.appendChild(item);

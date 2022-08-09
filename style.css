@@ -10,8 +10,16 @@
   display: none;
 }
 
+.editing .button-cancel {
+  display: inline;
+}
+
 .editing .input {
   display: inline;
+}
+
+.button-cancel {
+  display: none;
 }
 
 .button-save {
