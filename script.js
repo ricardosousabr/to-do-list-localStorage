@@ -90,6 +90,7 @@ function generateList() {
     const form = document.createElement('form');
     const editInput = document.createElement('input');
 
+    taskItem.classList.add('item-list');
     form.classList.add('list-styling');
     editInput.classList.add('input');
     editInput.type = 'text';
