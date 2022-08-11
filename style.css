@@ -1,3 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@100;300;400;500&display=swap');
+
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Roboto';
+}
+
+.to-do-list {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+li {
+  padding: 12px 5px;
+  width: 100%;
+}
+
+.list-styling {
+  padding: 0px 5px;
+}
+
 .editing .button-edit {
   display: none;
 }
@@ -16,6 +40,15 @@
 
 .editing .input {
   display: inline;
+}
+
+.button-edit {
+  border: none;
+  color: white;
+  background: #1FB6FF;
+  border-radius: 15px;
+  width: 80px;
+  height: 30px;
 }
 
 .button-cancel {

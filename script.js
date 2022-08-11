@@ -89,6 +89,7 @@ function generateList() {
     const form = document.createElement('form');
     const editInput = document.createElement('input');
 
+    form.classList.add('list-styling');
     editInput.classList.add('input');
     editInput.type = 'text';
     editInput.value = savingTasks[i];
