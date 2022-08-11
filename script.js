@@ -8,6 +8,7 @@ function checkValueTask() {
 
   return valueInput;
 }
+
 function createTask() {
   const valueInput = input.value.trim();
   const savingTasks = JSON.parse(localStorage.getItem('task')) || [];
