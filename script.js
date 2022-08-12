@@ -86,22 +86,27 @@ function generateList() {
 
   for (i = 0; i < savingTasks.length; i++) {
     const item = document.createElement('li');
+    const boxTask = document.createElement('div');
+    const boxButton = document.createElement('div');
     const taskItem = document.createElement('span');
     const form = document.createElement('form');
     const editInput = document.createElement('input');
 
+    boxButton.classList.add('box-button');
     taskItem.classList.add('item-list');
     form.classList.add('list-styling');
     editInput.classList.add('input');
     editInput.type = 'text';
     editInput.value = savingTasks[i];
     taskItem.innerHTML = savingTasks[i];
-    form.appendChild(taskItem);
-    form.appendChild(editInput);
-    form.appendChild(editItem());
-    form.appendChild(removeItem(i));
-    form.appendChild(cancelItem());
-    form.appendChild(saveItem());
+    form.appendChild(boxTask);
+    form.appendChild(boxButton);
+    boxTask.appendChild(taskItem);
+    boxTask.appendChild(editInput);
+    boxButton.appendChild(editItem());
+    boxButton.appendChild(removeItem(i));
+    boxButton.appendChild(cancelItem());
+    boxButton.appendChild(saveItem());
     item.appendChild(form);
     list.appendChild(item);
     changeTask(form, i, savingTasks, editInput);
