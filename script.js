@@ -105,8 +105,8 @@ function generateList() {
     boxTask.appendChild(editInput);
     boxButton.appendChild(editItem());
     boxButton.appendChild(removeItem(i));
-    boxButton.appendChild(cancelItem());
     boxButton.appendChild(saveItem());
+    boxButton.appendChild(cancelItem());
     item.appendChild(form);
     list.appendChild(item);
     changeTask(form, i, savingTasks, editInput);
