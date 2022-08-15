@@ -1,10 +1,40 @@
-<img src = 'https://img.shields.io/github/stars/ricardosousabr/to-do-list-localStorage'>
+
+# Lista de tarefa 📃📄
+
+Olá. Este projeto foi criado para ajudar as pessoas a se organizarem suas tarefas, ele tambem pode ser ultilizado como bloco de anotações
+## Instalando o projeto.
 
 
-<h1 align="center">Lista de tarefa 📃📄</h1>
+1° Clone o projeto usando o comando.
 
-<p align="center">Olá. Este projeto foi criado para ajudar as pessoas a se organizarem suas tarefas. Foi desenvolvido usando HTML, CSS e javaScript puro.</p>
+```bash
+  git clone https://github.com/ricardosousabr/to-do-list-localStorage
+```
 
-<h4 align="center"> 
-  Estado do projeto: Lista de tarefa 📃📄 Finalizado
-</h4>
+2° Instale a biblioteeca "Live server" na pasta do seu projeto usando o comando.
+
+```bash
+  npm install
+```
+
+3° Para iniciar o projeto use o comando.
+
+```bash
+  npm run start
+```
+
+
+
+
+## 🛠️ Construído com.
+
+- HTML
+
+- CSS
+
+- javaScript
+
+
+## Status do projeto.
+
+O projeto foi finalizado com sucesso 🎊🎉
